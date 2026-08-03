@@ -1,1 +1,1 @@
-# extension.h
+# extensions.h
