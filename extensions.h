@@ -75,5 +75,7 @@
 #define likely(x)       __builtin_expect(!!(x), 1)
 #define unlikely(x)     __builtin_expect(!!(x), 0)
 
+#define fallthrough     [[fallthrough]]
+
 // Marks a code path as unreachable, letting the compiler optimize accordingly
 #define unreachable()   __builtin_unreachable()
