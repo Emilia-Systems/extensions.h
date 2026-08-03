@@ -27,6 +27,9 @@
 
 #pragma once
 
+// Enables -Wformat checking on printf-style functions; fmt_idx/va_idx are 1-based (va_idx 0 for va_list variants)
+#define format(fmt_idx, va_idx) __attribute__((format(printf, fmt_idx, va_idx)))
+
 // Removes the padding from the struct
 #define packed          __attribute__((packed))
 
@@ -75,6 +78,7 @@
 #define likely(x)       __builtin_expect(!!(x), 1)
 #define unlikely(x)     __builtin_expect(!!(x), 0)
 
+// Marks an intentional switch-case fallthrough; silences -Wimplicit-fallthrough (C23)
 #define fallthrough     [[fallthrough]]
 
 // Marks a code path as unreachable, letting the compiler optimize accordingly
